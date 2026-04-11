@@ -1,0 +1,12 @@
+{"question":"Tell me about a recent project where you reduced frontend bundle size or render cost. What tradeoffs did you make?","interview_type":"technical"}
+{"question":"Describe how you would debug a slow dashboard that combines React charts, API calls, and client-side filtering.","interview_type":"technical"}
+{"question":"Walk me through a production issue you owned end-to-end and how you communicated during the incident.","interview_type":"technical"}
+{"question":"How would you design a resume upload and analysis workflow that stays secure under heavy traffic?","interview_type":"technical"}
+{"question":"Explain a technical decision where the fastest option was not the best long-term option.","interview_type":"technical"}
+{"question":"Describe a time you had to learn a new tool or framework quickly to deliver a project.","interview_type":"hr"}
+{"question":"Tell me about a situation where you received critical feedback and changed your approach.","interview_type":"hr"}
+{"question":"Why are you interested in this role, and what part of your background is most relevant?","interview_type":"hr"}
+{"question":"Describe a time you had conflicting priorities and how you decided what to do first.","interview_type":"hr"}
+{"question":"Tell me about a time you disagreed with a teammate on implementation details. How did you resolve it?","interview_type":"hr"}
+{"question":"What is a weakness in your current workflow that could hurt you in this role if left unaddressed?","interview_type":"stress"}
+{"question":"Describe a failure that exposed a gap in your judgment. What changed afterward?","interview_type":"stress"}

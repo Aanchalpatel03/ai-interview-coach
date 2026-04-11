@@ -1,0 +1,71 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: interview_coach
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/schema.sql:ro
+
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    env_file:
+      - backend/.env.example
+    depends_on:
+      - postgres
+      - nlp-service
+      - vision-service
+      - emotion-service
+      - speech-service
+    ports:
+      - "8000:8000"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    env_file:
+      - frontend/.env.example
+    depends_on:
+      - backend
+    ports:
+      - "3000:3000"
+
+  nlp-service:
+    build:
+      context: .
+      dockerfile: docker/nlp.Dockerfile
+    ports:
+      - "8101:8101"
+
+  vision-service:
+    build:
+      context: .
+      dockerfile: docker/vision.Dockerfile
+    ports:
+      - "8102:8102"
+
+  emotion-service:
+    build:
+      context: .
+      dockerfile: docker/emotion.Dockerfile
+    ports:
+      - "8103:8103"
+
+  speech-service:
+    build:
+      context: .
+      dockerfile: docker/speech.Dockerfile
+    ports:
+      - "8104:8104"
+
+volumes:
+  postgres_data:

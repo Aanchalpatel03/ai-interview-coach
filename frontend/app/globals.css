@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-frost text-ink antialiased;
+  background-image:
+    radial-gradient(circle at top left, rgba(59, 130, 246, 0.16), transparent 18%),
+    radial-gradient(circle at top center, rgba(34, 211, 238, 0.1), transparent 18%),
+    linear-gradient(180deg, #030712 0%, #060b1b 48%, #030712 100%);
+}
+
+.panel {
+  @apply rounded-[2rem] border border-white/10 bg-white/[0.04] shadow-panel backdrop-blur-xl;
+}
+
+.hero-surface {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.1), transparent 24%),
+    radial-gradient(circle at top center, rgba(59, 130, 246, 0.22), transparent 26%),
+    linear-gradient(135deg, #020617 0%, #090f22 50%, #071a33 100%);
+}
+
+.accent-card {
+  background:
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.12), transparent 22%),
+    linear-gradient(135deg, rgba(59, 130, 246, 0.34), rgba(34, 211, 238, 0.12)),
+    linear-gradient(135deg, rgba(7, 14, 31, 0.96), rgba(6, 11, 27, 0.98));
+}
+
+input,
+textarea {
+  color: #f8fafc;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(226, 232, 240, 0.45);
+}

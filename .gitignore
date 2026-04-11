@@ -1,0 +1,56 @@
+### IntelliJ IDEA ###
+.idea/
+*.iml
+out/
+!**/src/main/**/out/
+!**/src/test/**/out/
+.kotlin
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+### VS Code ###
+.vscode/
+
+### Python ###
+__pycache__/
+*.py[cod]
+.venv/
+.venv312/
+
+### Node.js / Next.js ###
+node_modules/
+.next/
+
+### Environment files ###
+.env
+.env.local
+
+### Logs ###
+*.log
+*.err.log
+
+### Local databases ###
+*.db
+
+### Windows ###
+desktop.ini
+
+### Mac OS ###
+.DS_Store

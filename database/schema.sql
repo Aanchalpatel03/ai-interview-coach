@@ -1,0 +1,45 @@
+CREATE TABLE IF NOT EXISTS users (
+  id UUID PRIMARY KEY,
+  name VARCHAR(120) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash VARCHAR(255) NOT NULL,
+  role VARCHAR(32) NOT NULL DEFAULT 'user',
+  resume_url TEXT,
+  extracted_skills TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS interviews (
+  id UUID PRIMARY KEY,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  type VARCHAR(50) NOT NULL,
+  status VARCHAR(32) NOT NULL DEFAULT 'active',
+  start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  end_time TIMESTAMP,
+  target_role VARCHAR(120),
+  difficulty VARCHAR(50) DEFAULT 'mid'
+);
+
+CREATE TABLE IF NOT EXISTS responses (
+  id UUID PRIMARY KEY,
+  interview_id UUID NOT NULL REFERENCES interviews(id) ON DELETE CASCADE,
+  question TEXT NOT NULL,
+  answer TEXT NOT NULL,
+  score FLOAT DEFAULT 0,
+  communication_score FLOAT DEFAULT 0,
+  answer_feedback TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS feedback (
+  id UUID PRIMARY KEY,
+  interview_id UUID UNIQUE NOT NULL REFERENCES interviews(id) ON DELETE CASCADE,
+  posture_score FLOAT DEFAULT 0,
+  confidence_score FLOAT DEFAULT 0,
+  communication_score FLOAT DEFAULT 0,
+  eye_contact_score FLOAT DEFAULT 0,
+  suggestions TEXT,
+  summary TEXT,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
